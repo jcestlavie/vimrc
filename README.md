@@ -1,6 +1,6 @@
-# The Ultimate vimrc
+# The Ultimate vimrc for Golang
 
-Over the last 8 years I have used and tweaked Vim. This is my Ultimate vimrc.
+This is an Ultimate vimrc forked from [amix/vimrc](https://github.com/amix/vimrc), and fixed for Golang programming.
 
 There are two versions:
 
@@ -12,17 +12,17 @@ I would of course recommend using the awesome version.c
 ## How to install the Awesome version?
 The awesome version includes a lot of great plugins, configurations and color schemes that make Vim a lot better. To install it simply do following:
 
-	git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+	git clone https://github.com/jcestlavie/vimrc.git ~/.vim_runtime
 	sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 I also recommend using [Source Code Pro font from Adobe](http://store1.adobe.com/cfusion/store/html/index.cfm?event=displayFontPackage&code=1960) (it's free and awesome font for writing and programming). The Awesome vimrc is already setup to try to use it
 
 ## How to install the Basic version?
-The basic version is basically just one file and no plugins. You can check out [basic.vim](https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim).
+The basic version is basically just one file and no plugins. You can check out [basic.vim](https://github.com/jcestlavie/vimrc/blob/master/vimrcs/basic.vim).
 
 This is useful to install on remote servers where you don't need many plugins and you don't do many edits.
 
-	git clone git://github.com/amix/vimrc.git ~/.vim_runtime
+	git clone git://github.com/jcestlavie/vimrc.git ~/.vim_runtime
 	sh ~/.vim_runtime/install_basic_vimrc.sh
 
 
@@ -84,7 +84,10 @@ Remove all clutter and focus only on the essential. Similar to iA Writer or Writ
 * [syntastic](https://github.com/scrooloose/syntastic): Syntax checking hacks for vim
 * [vim-yankstack](https://github.com/maxbrunsfeld/vim-yankstack): Maintains a history of previous yanks, changes and deletes
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim
-
+* [powerline](https://github.com/Lokaltog/vim-powerline): The ultimate vim statusline utility. DEPRECATED in favor of Lokaltog/powerline.
+* [supertab](https://github.com/ervandew/supertab): Perform all your vim insert mode completions with Tab.
+* [tagbar](https://github.com/majutsushi/tagbar): Vim plugin that displays tags in a window, ordered by scope.
+* [vim-plug](https://github.com/junegunn/vim-plug): Minimalist Vim Plugin Manager.
 
 ## Included color schemes
 
@@ -93,6 +96,8 @@ Remove all clutter and focus only on the essential. Similar to iA Writer or Writ
 * [vim-irblack](https://github.com/wgibbs/vim-irblack)
 * [mayansmoke](https://github.com/vim-scripts/mayansmoke)
 * [vim-pyte](https://github.com/therubymug/vim-pyte)
+* [molokai](https://github.com/tomasr/molokai)
+* [vim-adventurous](https://github.com/philpl/vim-adventurous)
 
 
 ## Included modes
@@ -125,13 +130,17 @@ Now you have vim-rails installed ;-)
 
 ### Plugin related mappings
 
-Open [bufexplorer](https://github.com/vim-scripts/bufexplorer.zip) and see and manage the current buffers (`<leader>o`):
+Open [bufexplorer](https://github.com/vim-scripts/bufexplorer.zip) and see and manage the current buffers (`<leader>bb`):
     
-    map <leader>o :BufExplorer<cr>
+    map <leader>bb :BufExplorer<cr>
 
-Open [MRU.vim](https://github.com/vim-scripts/mru.vim) and see the recently open files (`<leader>f`):
+Open [MRU.vim](https://github.com/vim-scripts/mru.vim) and see the recently open files (`<leader>uu`):
 
-    map <leader>f :MRU<CR>
+    map <leader>uu :MRU<CR>
+
+Open [tagbar](https://github.com/majutsushi/tagbar) and see the program structure(`<leader>tt`):
+
+    map <leader>tt :TagbarToggle<CR>
 
 Open [ctrlp.vim](https://github.com/kien/ctrlp.vim) plugin (`<leader>j` or `<ctrl>f`):
     
