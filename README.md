@@ -45,7 +45,7 @@ Simply just do a git rebase!
 
 ## Screenshots
 
-This vimrc works as Go IDE!
+This vimrc makes Vim working as Go IDE!
 ![Screenshot](https://github.com/jcestlavie/vimrc/raw/master/temp_dirs/screenshot/IMG_0091.PNG)
 
 
