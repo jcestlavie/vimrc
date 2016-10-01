@@ -7,18 +7,28 @@
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set echo line number
+set nu
+
 " Set font according to system
-if has("mac") || has("macunix")
-    set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
-elseif has("win16") || has("win32")
-    set gfn=Hack:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
-elseif has("gui_gtk2")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
-elseif has("linux")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
-elseif has("unix")
-    set gfn=Monospace\ 11
+if has("gui_running")
+    if has("mac") || has("macunix")
+        set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
+    elseif has("win16") || has("win32")
+        set gfn=Hack:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
+    elseif has("gui_gtk2")
+        "set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+        set guifont=Consolas\ for\ Powerline\ 12
+    elseif has("linux")
+        set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    elseif has("unix")
+        set gfn=Monospace\ 11
+    endif
+    let g:Powerline_symbols='fancy'
+else
+    let g:Powerline_symbols='compatible'
 endif
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
@@ -37,7 +47,6 @@ colorscheme peaksea
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! ~/.vim_runtime/my_configs.vim<cr>
 autocmd! bufwritepost vimrc source ~/.vim_runtime/my_configs.vim
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on 

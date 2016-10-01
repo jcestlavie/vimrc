@@ -19,14 +19,14 @@ let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
-map <leader>o :BufExplorer<cr>
+map <leader>bb :BufExplorerHorizontalSplit<cr>
 
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
+map <leader>uu :MRU<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -137,6 +137,16 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " => Vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1  
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -166,4 +176,49 @@ nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
-nnoremap <silent> <leader>d :GitGutterToggle<cr>
+"nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => PowerLine
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible  
+set t_Co=256  
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SuperTab
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => TagBar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>tt :TagbarToggle<cr>
+let g:tagbar_expand=1
+let g:tagbar_type_go = {  
+            \ 'ctagstype' : 'go',  
+            \ 'kinds' : [    
+            \ 'p:package',    
+            \ 'i:imports:1',    
+            \ 'c:constants',    
+            \ 'v:variables',    
+            \ 't:types',    
+            \ 'n:interfaces',    
+            \ 'w:fields',    
+            \ 'e:embedded',    
+            \ 'm:methods',    
+            \ 'r:constructor',    
+            \ 'f:functions'                 
+            \ ],  
+            \ 'sro' : '.',  
+            \ 'kind2scope' : {    
+            \ 't' : 'ctype',    
+            \ 'n' : 'ntype'  
+            \ },  
+            \ 'scope2kind' : {    
+            \ 'ctype' : 't',    
+            \ 'ntype' : 'n'  
+            \ },  
+            \ 'ctagsbin'  : 'gotags',  
+            \ 'ctagsargs' : '-sort          -silent'
+            \ }
