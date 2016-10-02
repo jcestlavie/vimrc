@@ -138,7 +138,7 @@ nnoremap <silent> <leader>z :Goyo<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r :w<cr><Plug>(go-run)
-au FileType go nmap <silent> <leader>b :w<cr>:!go build -gcflags "-N -l" -o `pwd`/%:r %<cr><Plug>(go-build)
+au FileType go nmap <leader>b :w<cr><Plug>(go-build)
 au FileType go nmap <leader>t :w<cr><Plug>(go-test)
 au FileType go nmap <leader>c :w<cr><Plug>(go-coverage)
 let g:go_highlight_functions = 1
