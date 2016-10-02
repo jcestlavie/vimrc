@@ -42,8 +42,8 @@ nmap <c-P> <Plug>yankstack_substitute_newer_paste
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
+map <leader>gg :CtrlP<cr>
+map <leader>pp :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
@@ -137,10 +137,10 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " => Vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>r :w<cr><Plug>(go-run)
+au FileType go nmap <silent> <leader>b :w<cr>:!go build -gcflags "-N -l" -o `pwd`/%:r %<cr><Plug>(go-build)
+au FileType go nmap <leader>t :w<cr><Plug>(go-test)
+au FileType go nmap <leader>c :w<cr><Plug>(go-coverage)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -189,6 +189,13 @@ set t_Co=256
 " => SuperTab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vimgdb
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+run macros/gdb_mappings.vim
+set asm=0
+set gdbprg=/usr/bin/gdb
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => TagBar
