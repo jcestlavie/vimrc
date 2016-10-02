@@ -28,7 +28,7 @@ function! SToggleGDB()
 endfunction
 
 "nmap <F7>  :call ToggleGDB()<cr>
-au FileType go nmap <F7> :call gdb("help")<cr>:call gdb("file " . expand("`pwd`/") . expand("%:r"))<cr>:call ToggleGDB()<cr>
+au FileType go nmap <F7> :call gdb("help")<cr>:call gdb("file " . expand("%:r"))<cr>:call ToggleGDB()<cr>
 
 nmap <S-F7>  :call <SID>Toggle()<cr>
 
