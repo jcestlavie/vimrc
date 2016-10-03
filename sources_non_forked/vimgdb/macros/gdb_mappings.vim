@@ -27,9 +27,7 @@ function! SToggleGDB()
     :call <SID>Toggle()
 endfunction
 
-"nmap <F7>  :call ToggleGDB()<cr>
-au FileType go nmap <F7> :call gdb("help")<cr>:call gdb("file " . expand("%:r"))<cr>:call ToggleGDB()<cr>
-
+nmap <F7>  :call ToggleGDB()<cr>
 nmap <S-F7>  :call <SID>Toggle()<cr>
 
 " nmap <S-F7>  :call SToggleGDB()<cr>
@@ -70,8 +68,14 @@ function! s:Toggle()
 
 	" print value referenced by word at cursor
 	nmap <silent> <C-X> :call gdb("print *" . expand("<cword>"))<CR>
-
-	echohl ErrorMsg
+    
+    if expand("%:e")=="go"
+    exec ":call gdb(\"pwd\")"
+    silent exec ":!go build -gcflags \"-N -l\" -o " . expand("%:r") . " " .  expand("%")
+    exec ":call gdb(\"file \" . expand(\"%:r\"))"
+    endif
+	
+    echohl ErrorMsg
 	echo "gdb keys mapped"
 	echohl None
 
@@ -100,6 +104,10 @@ function! s:Toggle()
 	nunmap <C-E>
 	nunmap <C-P>
 	nunmap <C-X>
+    
+    if expand("%:e")=="go"
+    silent exec "!rm -f " . expand("%:r")
+    endif
 
 	echohl ErrorMsg
 	echo "gdb keys reset to default"
