@@ -229,3 +229,31 @@ let g:tagbar_type_go = {
             \ 'ctagsbin'  : 'gotags',  
             \ 'ctagsargs' : '-sort          -silent'
             \ }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" =>cscope setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("cscope")  
+    set csprg=/usr/bin/cscope  
+    set csto=1  
+    set cst  
+    set nocsverb  
+    " add any database in current directory                 
+    if filereadable("cscope.out")      
+        cs add %:h/cscope.out  
+    else
+        silent exec ":cscope -bkq " . expand("%")
+        cs add %:h/cscope.out
+    endif  
+
+    set csverb
+    nmap <leader>csu :cd %:h<CR>:exec "!cscope -bkq " . expand("%")<CR><CR>
+    nmap <leader>css :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>csg :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>csc :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>cst :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>cse :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>csf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <leader>csi :cs find i <C-R>=expand("<cfile>")<CR><CR>
+    nmap <leader>csd :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
