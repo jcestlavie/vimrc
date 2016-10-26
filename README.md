@@ -85,7 +85,6 @@ Remove all clutter and focus only on the essential. Similar to iA Writer or Writ
 * [mayansmoke](https://github.com/vim-scripts/mayansmoke)
 * [vim-pyte](https://github.com/therubymug/vim-pyte)
 * [molokai](https://github.com/tomasr/molokai)
-* [vim-adventurous](https://github.com/philpl/vim-adventurous)
 
 
 ## Included modes

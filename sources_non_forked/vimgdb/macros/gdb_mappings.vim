@@ -39,35 +39,35 @@ function! s:Toggle()
 	let s:gdb_k = 0
 
 	map <Space> :call gdb("")<CR>
-	nmap <silent> <C-Z> :call gdb("\032")<CR>
+	nmap <silent> Z :call gdb("\032")<CR>
 
 	nmap <silent> B :call gdb("info breakpoints")<CR>
 	nmap <silent> L :call gdb("info locals")<CR>
 	nmap <silent> A :call gdb("info args")<CR>
 	nmap <silent> S :call gdb("step")<CR>
 	nmap <silent> I :call gdb("stepi")<CR>
-	nmap <silent> <C-N> :call gdb("next")<CR>
+	nmap <silent> N :call gdb("next")<CR>
 	nmap <silent> X :call gdb("nexti")<CR>
 	nmap <silent> F :call gdb("finish")<CR>
 	nmap <silent> R :call gdb("run")<CR>
 	nmap <silent> Q :call gdb("quit")<CR>
 	nmap <silent> C :call gdb("continue")<CR>
 	nmap <silent> W :call gdb("where")<CR>
-	nmap <silent> <C-U> :call gdb("up")<CR>
-	nmap <silent> <C-D> :call gdb("down")<CR>
+	nmap <silent> U :call gdb("up")<CR>
+	nmap <silent> D :call gdb("down")<CR>
 
 	" set/clear bp at current line
-	nmap <silent> <C-B> :call <SID>Breakpoint("break")<CR>
-	nmap <silent> <C-E> :call <SID>Breakpoint("clear")<CR>
+	nmap <silent> B :call <SID>Breakpoint("break")<CR>
+	nmap <silent> E :call <SID>Breakpoint("clear")<CR>
 
 	" print value at cursor
-	nmap <silent> <C-P> :call gdb("print " . expand("<cword>"))<CR>
+	nmap <silent> P :call gdb("print " . expand("<cword>"))<CR>
 
 	" display Visual selected expression
-	vmap <silent> <C-P> y:call gdb("createvar " . "<C-R>"")<CR>
+	vmap <silent> P y:call gdb("createvar " . "<C-R>"")<CR>
 
 	" print value referenced by word at cursor
-	nmap <silent> <C-X> :call gdb("print *" . expand("<cword>"))<CR>
+	nmap <silent> X :call gdb("print *" . expand("<cword>"))<CR>
     
     if expand("%:e")=="go"
     exec ":call gdb(\"pwd\")"

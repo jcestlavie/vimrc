@@ -85,7 +85,11 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_next_key="\<C-s>"
+let g:multi_cursor_start_key='<F4>'
+let g:multi_cursor_next_key='n'
+let g:multi_cursor_prev_key='p'
+let g:multi_cursor_skip_key='x'
+let g:multi_cursor_quit_key='<Esc>'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,10 +244,10 @@ if has("cscope")
     set nocsverb  
     " add any database in current directory                 
     if filereadable("cscope.out")      
-        cs add %:h/cscope.out  
+        cs add :h/cscope.out  
     else
         silent exec ":cscope -bkq " . expand("%")
-        cs add %:h/cscope.out
+        cs add :h/cscope.out
     endif  
 
     set csverb
